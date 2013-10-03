@@ -1,0 +1,30 @@
+package tutorial;
+
+option java_package = "gems";
+option java_outer_classname = "MetaDataProtos";
+
+message MetaData {
+  required int32 id = 1;
+
+  message GossipEntry {
+    required int32 id = 1;
+    required int32 heartbeat = 2;
+  }
+
+  repeated GossipEntry GossipList  = 2;
+  
+  message SuspectEntry {
+    required int32 rowIndex = 1;
+    
+	message SuspectRowEntry {
+          required int32 colindex = 1;
+          required int32 value = 2;
+        }
+
+    repeated SuspectRowEntry SuspectRow = 2; 
+  }
+
+  repeated SuspectEntry SuspectMatrix = 3;
+
+}
+
